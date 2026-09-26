@@ -1,7 +1,7 @@
 # phd_theodork
 
 ##  Description
-This repository tracks the progress of the PhD of theodork.
+This repository tracks the progress of the PhD of Konstantinos Theodoropoulos.
 
 ##  Contents
 *  **README.md:** This document.
