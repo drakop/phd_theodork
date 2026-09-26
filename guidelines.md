@@ -12,7 +12,7 @@ This document has the following sections.
 
 ##  Introduction
 
-This document summarizes the guidelines of the PhD of Konstantinos Theodoropoulos.
+This document summarizes the guidelines of the PhD of Konstantinos Theodoropoulos [dblp](https://dblp.org/pid/425/7467.html).
 
 
 ##  Modus operandi
