@@ -23,6 +23,8 @@ This document summarizes the guidelines of the PhD of Konstantinos Theodoropoulo
 
 _The title will be published when the PhD begins officially_.
 
+**Institution:**  [Department of Informatics and Computer Engineering](https://www.ice.uniwa.gr), [University of West Attica](https://www.uniwa.gr), Greece.
+
 ###  Objectives
 
 The primary research objective is the exploration of the connection between complexity, probabilistic analytics, game theory, and heuristics. Each such mainstay is indispensable in the contemporary digital world of connection-oriented and computationally intensive applications.
@@ -53,7 +55,7 @@ Moreover, it should be noted that there was scientific collaboration before the 
 |  dblp id  |  **Year**  |  **Venue**  |  **Type**  | **Primary topic**  |  **Secondary topic**  |
 |:----------|:-------|:-------------|:--------|:-------|:------|
 |  _pending_  |  2026  |  AIAI  |  Conference  |  Graph mining  |  N/A  |
-|  _pending_  | 2025 |  SMAP  |  Conference |  Multilingual recommendation  |  Social media (Twitter)  |
+|  \[c1\] | 2025 |  SMAP  |  Conference |  Multilingual recommendation  |  Social media (Twitter)  |
 
 ##  Dissertation structure
 
