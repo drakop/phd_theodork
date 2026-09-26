@@ -40,13 +40,13 @@ The algorithmic cornerstones of the PhD research will be the following.
 | Heuristics | Computing approximate solutions saves computational resources |
 
 
-###  Venues
+###  Publications
 
 This subsection will be progressively updated with the publication venues.
 
-|  **Venue**  |  **Type**  |  **Year**   |  
-|:----------|:-------------|:--------|
-| SMAP |  Conference |  2026  |
+|  **Venue**  |  **Type**  |  **Year**   |  **Main topic**  |
+|:----------|:-------------|:--------|:-------|
+| SMAP |  Conference |  2026  |  Graph mining  |
 
 ##  Dissertation structure
 
