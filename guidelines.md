@@ -45,7 +45,7 @@ The algorithmic cornerstones of the PhD research will be the following.
 This subsection will be progressively updated with the publication venues.
 
 |  dblp id  |  **Year**  |  **Venue**  |  **Type**  | **Primary topic**  |  **Secondary topic**  |
-|:----------|:-------------|:--------|:-------|:------|
+|:----------|:-------|:-------------|:--------|:-------|:------|
 |  _pending_  | 2026 |  SMAP  |  Conference |  Agentic AI  |  Graph neural networks (GNNs)  |
 
 ##  Dissertation structure
