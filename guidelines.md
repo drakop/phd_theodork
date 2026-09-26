@@ -50,7 +50,7 @@ This subsection will be progressively updated with the publication venues.
 
 ##  Dissertation structure
 
-The dissertation will be written in a top down manner meaning that 
+The dissertation will be written in a top down manner meaning that the layout of the dissertation will be written during the PhD and not at the end of it.
 
 As a general rule there are two broad types of PhD dissertations.
 *  **Single problem:**  In this kind of dissertation is organized around a central problem, whose variants, extensions, and potential applications are thoroughly examined. Therefore, for a storytelling perspective the dissertation feels like a novel with a discernible character arc, namely the solution of one research problem, with the PhD candidate acting as a reliable narrator.
