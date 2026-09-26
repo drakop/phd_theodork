@@ -23,7 +23,7 @@ This document summarizes the guidelines of the PhD of Konstantinos Theodoropoulo
 
 _The title will be published when the PhD begins officially_.
 
-**Institution:**  [Department of Informatics and Computer Engineering](https://www.ice.uniwa.gr), [University of West Attica](https://www.uniwa.gr), Greece.
+**Institution:**  [Department of Informatics and Computer Engineering](https://ice.uniwa.gr), [University of West Attica](https://www.uniwa.gr), Greece.
 
 ###  Objectives
 
