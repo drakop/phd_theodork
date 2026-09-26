@@ -44,6 +44,10 @@ The algorithmic cornerstones of the PhD research will be the following.
 
 This subsection will be progressively updated with the publication venues.
 
+|  **Venue**  |  **Type**  |  **Year**   |  
+|:----------|:-------------|:--------|
+| SMAP |  Conference |  2026  |
+
 ##  Dissertation structure
 
 The dissertation will be written in a top down manner meaning that 
