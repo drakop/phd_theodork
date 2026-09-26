@@ -48,6 +48,13 @@ This subsection will be progressively updated with the publication venues.
 |:----------|:-------|:-------------|:--------|:-------|:------|
 |  _pending_  | 2026 |  SMAP  |  Conference |  Agentic AI  |  Graph neural networks (GNNs)  |
 
+Moreover, it should be noted that there was scientific collaboration before the beginning of the doctorate studies which resulted in the following publications.
+
+|  dblp id  |  **Year**  |  **Venue**  |  **Type**  | **Primary topic**  |  **Secondary topic**  |
+|:----------|:-------|:-------------|:--------|:-------|:------|
+|  _pending_  |  2026  |  AIAI  |  Conference  |  Graph mining  |  N/A  |
+|  _pending_  | 2025 |  SMAP  |  Conference |  Multilingual recommendation  |  Social media (Twitter)  |
+
 ##  Dissertation structure
 
 The dissertation will be written in a top down manner meaning that the layout of the dissertation will be written during the PhD and not at the end of it.
