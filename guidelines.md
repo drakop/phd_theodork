@@ -39,7 +39,7 @@ As a general rule there are two broad types of PhD dissertations.
 
 Both types are valid with each having its own advantages and disadvantages. For industrial PhDs and/or for candidates with significant experience in industry the latter form may be more suitable as it allows a breadth first search (BFS) like type of exploration in contrast to the depth first search (DFS) like reasoning the former type frequently entails.
 
-Moreover, the dissertation will be patterned after the Finnish model. Therefore, the research papers which came out will be added as appendices, while the main body will primarily consist of the problem formulation (or in this case of the connection) and why does it have to be treated in an academic manner, a long discussion about the ...
+Moreover, the dissertation will be patterned after the Finnish model. Therefore, the research papers which came out will be added as appendices, while the main body will primarily consist of the problem formulation (or in this case of the connection) and why does it have to be treated in an academic manner, a long discussion about the methodology and the main findings, and an extensive description of the possible extensions along with the intuition developed during the research. In this way the reader can get a fairly good idea of the problem first and then delve deeper in the algorithmic and implementation considerations.
 
 The use of AI has been strictly limited to locating sources and summarizing them as needed. No content has been written from any kind of AI.
 
