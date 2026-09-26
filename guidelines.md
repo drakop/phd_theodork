@@ -36,9 +36,9 @@ Both types are valid with each having its own advantages and disadvantages.
 
 Moreover, the dissertation will be patterned after the Finnish model. Therefore, the research papers which came out will be added as appendices, while the main body will primarily consist of the problem formulation (or in this case of the connection) and why does it have to be treated in an academic manner, a long discussion about the ...
 
-The use of AI has been strictly limited to ...
+The use of AI has been strictly limited to locating sources and summarizing them as needed. No content has been written from any kind of AI.
 
-Finally, the writing style ...
+Finally, the writing style conforms to the unofficial [guide](https://github.com/drakop/guide) set forth by the advisor. Please note that said document is in Greek.
 
 
 ##  Miscellaneous
