@@ -33,15 +33,16 @@ Eventually, the PhD should be as close as possible to a win-win situation.
 
 The algorithmic cornerstones of the PhD research will be the following.
 
-| **Tables**  |  **Are**    |  **Cool** |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+|  Algorithmic strategy  |  Why will it be used   |  
+|:----------|:-------------|
+| Evolving graphs |  Complexity is frequently modeled as graphs |
+| Probabilistic analytics |  Probabilities drive many big data technologies    |
+| Heuristics | Computing approximate solutions saves computational resources |
 
 
 ###  Venues
 
+This subsection will be progressively updated with the publication venues.
 
 ##  Dissertation structure
 
@@ -64,6 +65,8 @@ Finally, the writing style conforms to the unofficial [guide](https://github.com
 
 ##  Miscellaneous
 
+This section contains information which does not fit into any of the preceding ones.
+
 ##  History
 
-In this section the milestones of the PhD are laid out in reverse chronological order.
+In this concluding section the milestones of the PhD are laid out in reverse chronological order.
