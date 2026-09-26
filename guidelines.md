@@ -29,7 +29,16 @@ The primary research objective is the exploration of the connection between comp
 
 Eventually, the PhD should be as close as possible to a win-win situation.
 
-###  Algorithmic elements
+###  Mainstays
+
+The algorithmic cornerstones of the PhD research will be the following.
+
+| **Tables**  |  **Are**    |  **Cool** |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
 
 ###  Venues
 
