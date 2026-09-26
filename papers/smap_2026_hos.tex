@@ -1,0 +1,449 @@
+%
+%
+%  --
+%  --
+%  --  smap_2026_hos.tex:
+%  --  ver 0.31 12.vi.2025
+%  --  ver 0.71 1.ix.2026
+%  --  panamax:
+%  --
+%  --
+%
+%
+
+
+\pdfminorversion=7
+
+
+\documentclass[conference, compsoc, final]{IEEEtran}
+
+
+\IEEEoverridecommandlockouts
+
+\ifCLASSINFOpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage[dvips]{graphicx}
+\fi
+\usepackage[cmex10]{amsmath}
+\usepackage{amsmath, amssymb, relsize}
+\usepackage{algorithm, algorithmic, listings}
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{url}
+
+\RequirePackage{amsmath, amssymb, relsize}
+\DeclareMathOperator{\bmdegop}{deg}
+\DeclareMathOperator{\bmprobop}{prob}
+\DeclareMathOperator{\bmopmean}{E}
+\DeclareMathOperator{\bmopvar}{Var}
+\DeclareMathOperator{\bmopprob}{prob}
+\DeclareMathOperator{\bmopdim}{dim}
+\DeclareMathOperator{\bmopdet}{det}
+\newcommand{\bmdef}{{\buildrel{{\mathsmaller{\triangle}}}\over{=}}}
+\newcommand{\bmparen}[1]{\left({#1}\right)}
+\newcommand{\bmvec}[1]{\mathbf{#1}}
+\newcommand{\bmmat}[1]{\mathbf{#1}}
+\newcommand{\bmnorm}[2]{\left\lVert{#1}\right\rVert_{#2}}
+\newcommand{\bmindex}[1]{\left[{#1}\right]}
+\newcommand{\bmtranspose}{T}
+\newcommand{\bmiteration}[1]{{\left[{#1}\right]}}
+\newcommand{\bmder}[1]{{\left({#1}\right)}}
+\newcommand{\bmcardinality}[1]{\left\lvert{#1}\right\rvert}
+\newcommand{\bmset}[1]{\left\lbrace{#1}\right\rbrace}
+\newcommand{\bmtuple}[1]{\left({#1}\right)}
+\newcommand{\bmtanimoto}[2]{\tau\left(#1,#2\right)}
+\newcommand{\bmtversky}[2]{\nu\left(#1,#2\right)}
+\newcommand{\bmAmean}[1]{\mathcal{A}\left(#1\right)}
+\newcommand{\bmGmean}[1]{\mathcal{G}\left(#1\right)}
+\newcommand{\bmHmean}[1]{\mathcal{H}\left(#1\right)}
+\newcommand{\bmrv}[1]{\mathcal{#1}}
+\newcommand{\bmspace}[1]{\mathcal{#1}}
+\newcommand{\bmneighb}[1]{\Gamma\left(#1\right)}
+\newcommand{\bmmean}[1]{\bmopmean\left[{#1}\right]}
+\newcommand{\bmvar}[1]{\bmopvar\left[{#1}\right]}
+\newcommand{\bmprob}[1]{\bmopprob\left\lbrace{#1}\right\rbrace}
+\newcommand{\bmdim}[1]{\bmopdim\left({#1}\right)}
+\newcommand{\bmdeg}[1]{\bmdegop\left({#1}\right)}
+\newcommand{\bmedge}[2]{\left(#1 \to #2\right)}
+\newcommand{\bmabs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\bmdet}[1]{\bmopdet\left(#1\right)}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\lstset{language=Python}
+\lstset{showspaces=false, showtabs=false, showstringspaces=false}
+
+\def\bmwork{conference paper}
+\def\bmworkw{work}
+\def\bmworkh{here}
+\def\bmworkt{text}
+
+\IEEEpubid{\makebox[\columnwidth]{978-8-3195-0873-7/26/\$31.00~\copyright2026 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
+\IEEEpubidadjcol
+
+
+\begin{document}
+
+
+\title{Agentic AI: A Survival Kit For Multimedia Content Recommendation}%
+\author{%
+    \IEEEauthorblockN{Konstantinos Theodoropoulos}%
+    \IEEEauthorblockA{%
+        ICE Department\\
+	University of West Attica\\
+        0009-0001-1233-3019
+    }%
+\and
+    \IEEEauthorblockN{Georgios Drakopoulos}%
+    \IEEEauthorblockA{%
+        ICE Department\\
+	University of West Attica\\
+        0000-0002-0975-1877
+    }%
+\and
+    \IEEEauthorblockN{Georgios Bardis}%
+    \IEEEauthorblockA{%
+        ICE Department\\
+	University of West Attica\\
+	gbardis@uniwa.gr
+    }%
+\and
+    \IEEEauthorblockN{Phivos Mylonas}%
+    \IEEEauthorblockA{%
+        ICE Department\\
+	University of West Attica\\
+        0000-0002-6916-3129
+    }%
+}%
+
+\maketitle
+
+
+\begin{abstract}
+Agentic AI has found a plethora of applications in the area of multimedia including content management, content recommendation, and role classification for multimedia entities. Although the particular roles depend heavily on the context and the underlying application, common roles pertain to content categories with successful categorization boosting recommendation. AI agents driven by LLMs rely on the latter not only for receiving responses in natural language, but also for choosing the proper tool for performing tasks if necessary. In the context of content categorization, one such tool can be a graph neural network (GNN) performing vertex classification based on connections and attributes as appropriate on vertices representing multimedia content. Here is presented the architecture of an AI agent with function calling to perform vertex classification on a benchmark graph.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Graph neural networks; GNN; agentic AI; ReAct model; reasoning; large language models; LLM; higher order attributes; recommendation; multimedia content. 
+\end{IEEEkeywords}
+
+
+\section{Introduction}\label{sec:introduction}
+
+
+Role classification \cite{zhu:2023} and role mining \cite{ghai:2025} in general when applied to multimedia content can vastly improve the recommendation algorithms for the latter. For instance, categorization of new or even of user generated content based on one or more similarity metrics can ensure that the proper demographics can access it. As another concrete example, when a new account joins a social medium, then it can get accurate recommendations from a huge pool of similar accounts which may be also relatively new in addition to recommendations from a much smaller pool of big accounts and influencers. Then, these two recommendtion lists can be fused with either sophisticated algorithm techniques or just be presented as two separate lists to the new account to accelerate its online interaction and also make it feel more welcome to the vast world of social media.
+
+In view of how important recommendation and engament algorithms are across a broad spectrum not only of online social networks in particular, but also of multimedia content providers. With the advent of agentic AI multimedia recommendation got a new boost as the large language model (LLM) driving the agent may well create a schedule for efficiently categorizing multimedia content and then to reason how to utilize available tools in order to perform content classification either as a standalone step or as a preprocessing step in order to increase the efficiency of recommendation algorithms. Outside the field of multimedia personalization, another potential application within startup incubators would be the recommendation of partners or the recommendation of startups to mentors and angel investors, forming thus the basis of a framework for evaluating the innovation potential of heterogeneous enterprise ecosystems.
+
+\begin{table}[htbp]
+\centering%
+\caption{Notation synopsis.}
+\label{tab:notation}
+    \begin{tabular}{lll} 
+    \hline
+    \textbf{Symbol}  &  \textbf{Meaning}  &  \textbf{First in}  \\
+    \hline
+    $\bmdef$                    &  Definition or equality by definition  &  Eq. \eqref{eq:degrees}  \\
+    $\bmcardinality{S}$         &  Set cardinality  &  Eq. \eqref{eq:cardinality}  \\
+    $\bmdeg{v}$                 &  Vertex degree  &  Eq. \eqref{eq:cardinality}  \\
+    $\bmmean{X}$                &  Mean value of rv $X$  &  Eq. \eqref{eq:skewness}  \\
+    $\bmvar{X}$                 &  Varfiance of rv $X$  &  Eq. \eqref{eq:skewness}  \\
+    $f^\bmder{n}\bmparen{x}$    &  $n$-th derivative of function $f$  &  Eq. \eqref{eq:cumulant}  \\
+    $\bmprob{\Omega}$           &  Probability of event $\Omega$ occurring  &  Eq.  \eqref{eq:rate}  \\
+    \hline
+\end{tabular}
+\end{table}
+
+The primary research objective of this \bmwork{} is the demonstration of how a graph neural network (GNN) trained in PyTorch\footnote{https://pytorch.org} using an extended set of local ground truth attributes can be used in the context of function calling from an AI agent. To this end, the agent architecture is laid out in detail. Said set includes first, second, and higher order attributes such as the vertex degree, the shared neighborhood size, and the cumulants of the degree distribution respectively. To illustrate the feasibility of the proposed approach, the agentic architecture has has been applied to a synthetic benchmark graph pertaining to multimedia content.
+
+The structure of this \bmworkw{} follows. Section \ref{sec:work} briefly summarizes the relevant scientific literature. In section \ref{sec:arch} the agentic AI architecture is described. The synthetic graph and the results are the focus of section \ref{sec:results}. Finally, future research directions are given in section \ref{sec:more}. The terms \emph{attribute} and \emph{feature} are used interchangeably. Technical acronyms are explained the first time they are encountered in the \bmworkt. Finally the notation of this \bmworkw{} is summarized in table \ref{tab:notation}. 
+
+
+
+\section{Related Work}\label{sec:work}
+
+
+Multimedia recommendation \cite{wu:2020} is a very diverse field \cite{sattari:2025}\cite{gan:2025} with a wide array of applications such as cultural content recommendation \cite{drakop:2022:ncaa:som}, tensor completion based clustering for movies \cite{wang:2025}, adaptive clustering for multimedia preferences \cite{xiong:2025}, asymptotics aware recommendation for content personalization \cite{xu:2025}, and behavioral enhanced recommendation \cite{drakop:2021:iisa:beh}. Higher order attributes such as cumulants \cite{pakravan:2018}\cite{bonnier:2024} and the Laplacian spectrum \cite{zhuo:2024} reveal more information about a distribution compared to first order statistics \cite{cho:2024}\cite{li:2024} and can be combined with the above schemes. Tensor driven community discovery can be used for recommendation \cite{drakop:2020:smap:kruskal} in order to accomodate multilinear attribute sets.  
+
+Agentic AI \cite{abou:2025}\cite{pati:2025} has already found numerous applications since the introduction of large language models (LLMs) \cite{acharya:2025} and vector databases \cite{drakop:2025:adhd:func}. Extractive document summarization \cite{drakop:2025:adhd:gnn} can enhance the training and performance of agents \cite{murugesan:2025}\cite{raheem:2025}. Set cardinality estimators \cite{drakop:2016:sac} can efficiently guide LLMs to estimate their workload \cite{jiang:2026} and to generate succinct reponses in natural language \cite{gonzalez:2026}.
+
+GNNs have been used in conjunction with higher order attributes \cite{li:2021} to achieve better performance \cite{you:2020} for a graphs like heterophilic \cite{bi:2024} and heterogeneous \cite{wang:2024}. GNNs can be combined with transformers \cite{sun:2024} and edge splitting \cite{guo:2024}, while resource allocation can accelerate learning \cite{peng:2024}. Applications include multiview spectral graph clustering \cite{xie:2024}, topological graph clustering \cite{drakop:2024:adhd}\cite{ullah:2020}\cite{ding:2024}\cite{you:2021}, mining network structure \cite{hu:2021}\cite{drakop:2022:adhd}, zero-short learning \cite{liu:2020}, localizing software faults \cite{gou:2024}, wireless communications \cite{mourya:2024}, and partial differential equations (PDEs) \cite{gladstone:2024}. Graph data structures can help a GNN reconfigure itself and achieve high performance in the face of evolving topologies \cite{drakop:2014:ictai}.
+
+
+\section{Architecture}\label{sec:arch}
+
+
+\subsection{Agentic AI}
+
+Agentic AI relies heavily on \textit{function calling} or \textit{tool calling}, namely the passing to one or more of the available functions the proper arguments in order to obtain a result if the LLM driving the agent reasons that there is insufficient information to provide the user with a complete answer. Function calling may also well take place in intermediate steps of the ongoing conversation with the user.
+
+\begin{figure*}[thbp]
+\centering
+\includegraphics[scale=1]{smap_2026_hos_react.pdf}
+\caption{\label{fig:react}The ReAct model conceptual loop.}
+\end{figure*}
+
+\begin{table}[htbp]
+\centering
+\caption{Agentic AI vs human code.}
+\label{tab:agentic}
+    \begin{tabular}{lll}
+    \hline
+    \textbf{Parameter}  &  \textbf{Agentic AI}  &  \textbf{Human code}  \\
+    \hline
+    Path  &  Dynamic through reasoning  &  Static with fixed points \\
+    Failure  &  Adapts and reaspons  &  Throws exception  \\
+    Operation  &  Rule-dependent  &  Task-dependent  \\
+    Interaction  &  Iterative and interactive  &  Passive  \\
+    \hline
+    \end{tabular}
+\end{table}
+
+The main loop of any agentic AI is essentially the iterative execution cycle of the ReAct model\footnote{https://www.ibm.com/think/react-agent}. This model is shown in figure \ref{fig:react}. Moreover, the differences between agentic AI and human generated code are listed in table \ref{tab:agentic}.
+
+The main components in an agentic AI architecture as well as their respective roles are delineated below. Although the latter may slightly vary across architectures, the general guidelines still apply.
+\begin{itemize}
+
+\item  \textbf{LLM:} A language model that takes text as input and produces text as output. Can be prompted with questions by the user, system prompts, and also with tool descriptions.
+
+\item  \textbf{Agent:} A piece of software acting on behalf of the user charged with executing instructions issued by the LLM, primarily through tools, and returning their results to it.
+
+\item  \textbf{Tool:} A dedicated autonomous code segment, wether a function or an entire application, which carries out specific computations with arguments supplied by the LLM through the agent.
+
+\end{itemize}
+
+The LLM is driven mainly by two kinds of prompt with diffetent roles and different priorities which determine the starting point and the limitations of its reasoning. These are the following:
+\begin{itemize}
+
+\item  \textbf{System prompt:} It contains should contain the description of each tool, possible as a JSON object, along with a description and the type of each argument a given tool expects.
+
+\item  \textbf{User prompt:} The interactions with the user are coded as a sequence of messages to the LLM. These contain the instructions and the requests of the user within the limits of the system prompt.
+
+\end{itemize}
+
+The sequence of user prompts is kept, especially when it is short, in order to provide much needed context for the LLM. Alternatively, it must be stored in special state variables representing an aggregation of the conversation on many levels like linguistic, emotional, semantic, and pragmatologic. Moreover, important terms and references may be separately stored. The sequence of user prompts is essential as different sequences may well lead to different context depending on the implementation. Moreover, parts of the user prompt may be dropped if they violate the guidelines set forth in the system prompt.
+
+To illustrate the above, consider the following simplified example. Therein there is a single tool called \lstinline+degree+ which returns the number of neighbors of a given vertex or raises a \lstinline+ValueError+ exception when a \lstinline+None+ placeholder value is passed. When the list is empty, then zero is returned.
+\begin{lstlisting}
+def degree(vertices: list| None) -> int:
+    if vertices is None:
+        raise ValueError('No list.')
+    return len(vertices)
+\end{lstlisting}
+
+The tool description for function calling is a Python list of dictionaries where each dictionary contains a short description of a given tool, which can be used by the LLM not only as a guide to determine whether the corresponding tool is appropriate for a given task but also to justify to the user in natural language why this particular tool was chosen if so requested. Morover, in the same dictionary are stored the arguments the tool requires, a brief description of them, their type, and whether they are required. This allows the agent to properly formulate and pass the arguments to the tool based on the choices by the user and any relevant guidelines found in the system prompt.
+\begin{lstlisting}
+tools = [
+  {
+    "name": "degree",
+    "function": "Compute vertex degree",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "vertices": {"type": "list"}
+      },
+     "required": ["vertices"]
+    }
+  }
+]
+\end{lstlisting}
+
+The above components serve to make agentic AI architectures reliable, efficient, and capable of interacting with humans in natural language, a major breakthrough from a technological as well as from a UI/UX perspective.
+
+
+\subsection{PyTorch as a tool}
+
+In this context the GNN is the single tool at the disposal of the agent. Although GNNs can and often have been standalole tools, nothing precents them from being a component in a function calling architecture with multiple tools for achieving a broader objective. The GNN utilized as a tool by the agent is trained synchronously in an iteratively manner as shown in algorithm \ref{algo:gnn} to learn to classify its vertices to two categories, namely as being relevant or not to the user. This serves as a major early pipeline step for more sophisticated recommendation schemes. 
+
+\begin{algorithm}[htbp]
+\caption{GNN training}
+\label{algo:gnn}
+\begin{algorithmic}[1]
+\REQUIRE  Graph and ground truth vectors.
+\REQUIRE  Termination condition set.
+\ENSURE  Graph is trained.
+\WHILE{termination conditions are \FALSE}
+    \STATE  determine dropout set $S$ for current round
+    \FORALL{vertices $u$ \NOT in $S$}
+        \STATE  exchange messages with neighbors
+	\STATE  update local ground truth vector
+    \ENDFOR
+\ENDWHILE
+\RETURN trained graph
+\end{algorithmic}
+\end{algorithm}
+
+The dropout set $S$ during each round reduces the computational cost per round and additionally it smoothes out the training process speed among vertices as in its absence high degree vertices converge or, for pathological cases of course, reach problematic states faster. When a vertex is trained intensely compared to the other ones, then it may converge quicker, but this convergence state may very well be unstable and thus pushing the vertex past that point through excessive training may create ripples throughout the graph.
+
+The atrributes used in the training of the GNN are of various orders. Higher order in the context of graph mining refers to the number of vertices necessary to construct an attribute about a given vertex $u$. Therefore, a first order feature involves information only about $u$, a second order attribute requires information about another vertex, most likely the neighbors of $u$, whereas a higher order one entails the examination of at least two distinct vertices besides $u$, for instance the neighbors or the neighbors of $u$. Hence, under this definition, transforms whether linear or nonlinear of first and second order features do not count as higher order attributes.
+
+The features used to train the GNN are shown in table \ref{tab:attrib}. In the leftmost column the local attributes, namely the first and second order features, are listed, then in the middle the local higher order attributes are given, and finally on the rightmost column the global graph attributes are stated. The difference between the middle and the right column serves to show to the the GNN how the profile of a given vertex differs from that of a typical vertex, whereas the right column adds local context in terms of variation and details.
+
+\begin{table*}[thbp]
+\centering%
+\caption{Vertex attrbutes in the ground truth vectors.}
+\label{tab:attrib}
+    \begin{tabular}{lll}
+    \hline
+    \textbf{Lower order attributes}  &  \textbf{Higher order attributes}  &  \textbf{Global attributes}  \\
+    \hline
+    Neighborhood size (degree)  &  Clustering coefficient of   &  Global clustering coefficient  \\
+    Local degree vector  &   Pythagorean means  &  Graph diameter  \\
+    Common neighors  &  Adamic-Adar index  &  Number of triangles  \\
+    \hline
+    \end{tabular}
+\end{table*}
+
+One of the core local attributes of the local ground truth feature set of a vertex $u$ is the vector $\bmvec{d}_u \in \mathbb{Z}^{n_u}$ consisting of the degrees of $u$ and these of its neighbors as shown in equation \eqref{eq:degrees}. Tis reveals details of the neighborhood.
+\begin{equation}
+\bmvec{d}_u  \:\bmdef\:
+\begin{bmatrix}
+    \bmdeg{v}, & \bmdeg{s}, &  \ldots, &  \bmdeg{c}
+\end{bmatrix}^\bmtranspose
+\label{eq:degrees}
+\end{equation}
+
+In equation \eqref{eq:degrees} the length $n_u$ of the vector $\bmvec{d}_u$ by construction equals the degree of $u$ as it ranges over the neighborhood $\bmneighb{u}$ of $u$ as shown in equation \eqref{eq:cardinality}.
+\begin{equation}
+n_u  \:\bmdef\:
+    \bmcardinality{\bmneighb{u}}  \:=\:
+    \bmdeg{u}
+\label{eq:cardinality}
+\end{equation}
+
+An important higer order attribute for vertex $u$ is the clustering coefficient $\rho\bmparen{u}$ defined as the ratio of the closed triangles containing $u$ to the potential number of triangles containing $u$. Collecting the clustering coefficients of $u$ and these of its neighbors to a vector $\bmvec{r}_u$ as shown in equation \eqref{eq:set} yields important local structural information about $u$. 
+\begin{equation}
+\bmvec{r}_u  \:\bmdef\:
+\begin{bmatrix}
+    \rho\bmparen{u}, &  \rho\bmparen{v}, &  \ldots, &  \rho\bmparen{s}
+\end{bmatrix}^\bmtranspose
+,v, s \in \bmneighb{u}
+\label{eq:set}
+\end{equation} 
+
+From an algorithmic engineering perspective, the more transformed features are available, typically the more efficient the graph learning process is as GNN communication and feedback loops benefit from high attribute variability. To this end, a number of nonlinear transforms have been applied to both $\bmvec{r}_u$ and $\bmvec{d}_u$. The three Pythagorean means, namely the arithmetic, the geometric, and the harmonic means described in equations \eqref{eq:arithmetic}, \eqref{eq:geometric}, and \eqref{eq:harmonic} respectively provde ways to do so. The arithmetic mean is easy and efficient to compute as shown in equation \eqref{eq:arithmetic} but it is prone to outliers.
+\begin{equation}
+\bmAmean{\bmvec{x}}  \:\bmdef\:
+    \frac{1}{n}\sum_{k=1}^{n}\bmvec{x}\bmindex{k}
+\label{eq:arithmetic}
+\end{equation}
+
+The geometric mean for a numerical vector $\bmvec{x}$ defined as in equation \eqref{eq:geometric}. Although it is much less prone to outliers like the arithmetic mean, the numerical stability of both forms may be challenging under certain circumstances.
+\begin{equation}
+\bmGmean{\bmvec{x}}  \:\bmdef\:
+    \bmparen{\prod_{k=1}^{n}\bmvec{x}\bmindex{k}}^{\frac{1}{n}}  \:=\:
+    \exp\bmparen{\frac{1}{n}\sum_{k=1}^{n}\ln{\bmvec{x}\bmindex{k}}}
+\label{eq:geometric}
+\end{equation}
+
+The harmonic mean for a numerical vector $\bmvec{x}$ is defined as in equation \eqref{eq:harmonic} shown below. Regarding numerical stability, small entries in $\bmvec{x}\bmindex{k}$ may lead to catastrophic cancellation and a small denominator might yield a highly inaccurate value. Nonetheless, the harmonic mean is much less prone to outliers than both the arithmetic and geometric means. The harmonic mean is used among others in information retrieval (IR) as well as in computer network analysis.
+\begin{equation}
+\bmHmean{\bmvec{x}}  \:\bmdef\:
+    \frac{\displaystyle n}{\displaystyle \sum_{k=1}^{n}\frac{1}{\bmvec{x}\bmindex{k}}}  \:\approx\:
+    \frac{\displaystyle n}{\displaystyle \sum_{k=1}^{n}\frac{1}{\max\left\lbrace \bmvec{x}\bmindex{k}, x_0 \right\rbrace}} 
+\label{eq:harmonic}
+\end{equation}
+
+The relationship between the three Pythagorean means above indicates that there is attribute variability.
+\begin{equation}
+\bmHmean{\bmvec{x}}  \:\leq\:
+    \bmGmean{\bmvec{x}}  \:\leq\:
+    \bmAmean{\bmvec{x}}
+\end{equation}
+
+Another set of nonlinear transforms consists of the skewness and kurtosis shown in equations \eqref{eq:skewness} and \eqref{eq:kurtosis} respectively. They are third and forth order cumulants characterizing the form of a distribution. Specifically, the skewness of an rv $\bmrv{X}$ is a measure of how symmetric its distribution is around its mean depending on its sign. This single metric can be applied to normalized versions of $\bmvec{d}_u$ and $\bmvec{r}_u$ which can be treated as probability mass functions.
+\begin{equation}
+\bmmean{\bmparen{\dfrac{\bmrv{X} - \bmmean{\bmrv{X}}}{\sqrt{\bmvar{\bmrv{X}}}}}^3}  \:=\:
+    \dfrac{\bmmean{\bmrv{X}-\bmmean{\bmrv{X}}}^3}{\bmvar{\bmrv{X}}^{\frac{3}{2}}}
+\label{eq:skewness}
+\end{equation}
+
+The kurtosis shown in equation \eqref{eq:kurtosis} is a metric showing how heavy the tail of a distribution is. This metric can more accurately capture how heavy a distribution is compared to probabilistic inequalities like the Chebyshev inequality.
+\begin{equation}
+\bmmean{\bmparen{\dfrac{\bmrv{X} - \bmmean{\bmrv{X}}}{\sqrt{\bmvar{\bmrv{X}}}}}^4}  \:=\:
+    \dfrac{\bmmean{\bmrv{X}-\bmmean{\bmrv{X}}}^4}{\bmvar{\bmrv{X}}^2}
+\label{eq:kurtosis}
+\end{equation}
+
+The characteristic function $\Psi\bmparen{j\omega; \bmrv{X}}$ of a rv $\bmrv{X}$ is defined as the conjugated Fourier transform of its probability distribution as shown in equation \eqref{eq:psi}. It can reveal important information about the distribution through its form, its derivatives, and other additional proprties like the its convergence region(s). Also the Taylor expansion of the characteristic function can add significant information.
+\begin{equation}
+\Psi\bmparen{j\omega; \bmrv{X}}  \:\bmdef\:
+    \bmmean{e^{j \omega \bmrv{X}}}  \:=\:
+    \sum_{k=1}^n p_k e^{j\omega\bmparen{k-1}}
+\label{eq:psi}
+\end{equation}
+
+Observe that \eqref{eq:psi} is by construction a trigonometric polynomial of degree $n-1$ with real coefficients, where $n$ is the number of events in the distribution. An important property regularization property is shown in equation \eqref{eq:psitu}.
+\begin{equation}
+\Psi\bmparen{0; \bmrv{X}}  \:=\:
+    \sum_{k=0}^{n-1}p_k  \:=\:
+    1
+\label{eq:psitu}
+\end{equation}
+
+Another way to describe $\Psi\bmparen{j\omega; \bmrv{X}}$ is through its cumulants $c_k$, which are the Taylor coefficients of the logarithm of $\Psi\bmparen{j\omega; \bmrv{X}}$ evaluated at zero. These alternative coefficients also reveal information about the shape of the distribution and have numerous applications in signal processing, including audio processing and graph signal processing.
+\begin{equation}
+c_k  \:\bmdef\:
+    \dfrac{\partial^k \ln\Psi\bmparen{j\omega; \bmrv{X}}}{\partial \bmparen{j\omega}^k} \left\lvert\right._{\omega = 0}
+\label{eq:cumulant}
+\end{equation}
+
+The above contain only a small subset of the ground truth vectors embedded in every vertex. The same holds true for the entries of table \ref{tab:attrib}.
+
+
+\section{Results}\label{sec:results}
+
+
+In this section the benchmark graph used in described and the results obtained from it are explained. The graph comes from a cultural game designed to teach and promote a set of values enshrined in classical antiquity. The vertices represent areas of the game to be recommended to the player, where edges represent the connections between them. 
+
+\begin{table}[thbp]
+\centering%
+\caption{Benchmark graph properties.}
+\label{tab:graphs}
+    \begin{tabular}{ll}
+    \hline
+    \textbf{Property}  &  \textbf{Value}  \\
+    \hline
+    Number of vertices  &  $142$  \\
+    Number of edges  &  $371$  \\
+    Triangles  &  $516$  \\
+    Squares  &  $331$  \\
+    Diameter  &  $8$  \\
+    Attributes per vertex  &  $97$  \\
+    \hline
+    \end{tabular}
+\end{table}
+
+Regarding the recommendation part, as the graph is annotated with the actual choices of players, the accuracy of the GNN can be computed and compared against the ground truth data nd it was found to be $91.33\%$, which is rather encouraging although there is clearly room for imrovement.
+
+Concerning the function calling part, the ability of the LLM to understand whether it should call its tool without much explicit user guidance is evaluated by the right call rate, which for a single tool $\tau$ it takes the form shown in equation \eqref{eq:rate} below. In our case $\rho$ was $98.17\%$.
+\begin{align}
+\rho  &  \:\bmdef\:
+\dfrac{\tau~\textrm{was called}}{\tau~\textrm{should have been called}}  \cr  
+    &  \:\approx\: \bmprob{\tau~\textrm{was correctly called.}}
+\label{eq:rate}
+\end{align}
+When multiple tools are available, then $\rho$ can be parameterized depending on whether a given tool should have been called, leading to finer granularity results.
+
+
+\section{Conclusions}\label{sec:more}
+
+
+This \bmwork{} focuses on the potential of agentic AI and function calling for graph mining. In particular, an agent has the ability to call PyTorch to train a graph neural network (GNN) to classifiy the vertices of a network whose vertices represent multimedia content with the purpose of selecting which vertices should be recommended to the user. Said GNN is trained with local ground truth vectors containing lower and higher order structural patterns. The latter offer a considerable algorithmic advantage in terms of accuracy. GNNs have been selected as they offer superior performance in classification problems by taking advantage of the knowledge inherent in industrial processes which typically rely on maintaining and, should the need arise, reconfiguring connectivity patterns between its various paths.
+
+This \bmworkw{} can be extended in a number of ways. First and foremost, more and attributes can be used to agument the benchmark graph and also more graphs representing pieces of multimedia content and the interconnections between them can be used. Additionally, regarding the recommendation part, the effect of the GNN classification to reranking should be evaluated. About the function calling part, the agent can be given access to preconfigured GNN classifiers or the ability to crete new ones by passing detailed information to PyTorch. Additionally, the agent can be given the ability to combine the output of different GNN classificers or even results coming from other types of vertex classifiers. Finally, numerical stability considerations can be explored, given the size of multimedia content graphs.
+
+
+\section*{Acknowledgment}
+
+
+This \bmwork{} was written as part of Project 451, a long term research initiative whose primary objective is the development of novel, scalable, numerically stable, and interpretable higher order analytics.
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{smap_2026_hos}
+
+
+\end{document}
+
