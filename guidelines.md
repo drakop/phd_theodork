@@ -29,7 +29,7 @@ Eventually, the PhD should be as close as possible to a win-win situation.
 ##  Dissertation structure
 
 As a general rule there are two broad types of PhD dissertations.
-*  **Single problem:**  In this kind of dissertation is organized around a central problem, whose variants, extensions, and potential applications are thoroughly examined. Therefore, for a storytelling perspective the dissertation feels like a novel with a discernible character arc, namely the solution of one research problem with the PhD candidate acting as a narrator.
+*  **Single problem:**  In this kind of dissertation is organized around a central problem, whose variants, extensions, and potential applications are thoroughly examined. Therefore, for a storytelling perspective the dissertation feels like a novel with a discernible character arc, namely the solution of one research problem, with the PhD candidate acting as a reliable narrator.
 *  **Single connection:**  An application Feels more like an edited volume with the twist that each chapter has been written by the same author, i.e. the PhD candidate, and edited by the PhD advisor(s).
 
 Both types are valid with each having its own advantages and disadvantages.
