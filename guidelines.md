@@ -46,7 +46,7 @@ Both types are valid with each having its own advantages and disadvantages. For 
 
 Moreover, the dissertation will be patterned after the Finnish model. Therefore, the research papers which came out will be added as appendices, while the main body will primarily consist of the problem formulation (or in this case of the connection) and why does it have to be treated in an academic manner, a long discussion about the methodology and the main findings, and an extensive description of the possible extensions along with the intuition developed during the research. In this way the reader can get a fairly good idea of the problem first and then delve deeper in the algorithmic and implementation considerations.
 
-Additionally, at the beginning of the 
+Additionally, at the beginning of the text there will be table explaining the contribution of each research paper as well as a second table where the connection of each paper to each of the mainstays described earlier is clearly illustrated. This will allow the reader to understand not only the importance of each paper, but also the links between them.
 
 The use of AI has been strictly limited to locating sources and summarizing them as needed. No content has been written from any kind of AI.
 
