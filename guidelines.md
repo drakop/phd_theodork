@@ -80,6 +80,10 @@ Finally, the writing style conforms to the unofficial [guide](https://github.com
 
 This section contains information which does not fit into any of the preceding ones.
 
+####  GraphViz and DOT language
+
+The [Graphviz page](https://graphviz.org/) provides access to resources like [documentation](https://graphviz.org/documentation/) and the DOT language [guide](https://graphviz.org/doc/info/lang.html).
+
 ##  History
 
 In this concluding section the milestones of the PhD are laid out in reverse chronological order.
